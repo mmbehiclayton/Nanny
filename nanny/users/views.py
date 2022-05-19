@@ -1,6 +1,6 @@
+
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .forms import CreateUserForm, UserCreationForm
+from .forms import CreateUserForm
 
 # Create your views here.
 def signup(request):
@@ -12,4 +12,3 @@ def signup(request):
     else:
         signup_form= CreateUserForm()    
     return render(request, 'users/signup.html',{'signup_form':signup_form})
-    
