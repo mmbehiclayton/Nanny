@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-
 from users import views as user_views
 
 urlpatterns = [
@@ -32,7 +31,8 @@ urlpatterns = [
     path('logout', auth_views.LoginView.as_view(template_name='users/logout.html'), name="user_logout"),
     path('chaining/', include('smart_selects.urls')),
     #nanny update profile path
-    path('update', user_views.profile_update, name="user_update")
+    path('update', user_views.profile_update, name="user_profile_update"),
+    path('profile/', user_views.profile, name="user_profile")
     
     
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #CREATES THE MEDIA FOLDER ROUTE AND CONNECTS IT TO THE SYSTEM/BASE

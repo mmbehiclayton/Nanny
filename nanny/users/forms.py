@@ -15,11 +15,16 @@ class CreateUserForm(UserCreationForm):
  
 #this class creates a from that is used to update nanny user profile.
 
-#class UserUpdateForm(forms.ModelForm):
-    
+
+
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields = ('username','email') 
         
 class NannyProfileUpdateForm(forms.ModelForm):
     class Meta:
         model=NannyProfile
-        fields=['phone_number','state','state','city','religion','education','ethinicity','date_of_birth','image']
+        fields=['phone_number','state','city','religion','education','ethinicity','date_of_birth','image']
             

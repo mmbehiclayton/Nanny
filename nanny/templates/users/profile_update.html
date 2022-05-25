@@ -13,8 +13,9 @@
                 <div class="alert alert-primary">
                     <h4>Profile Update</h4>
                 </div>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
+                    {{ user_form | crispy}}
                     {{ user_update_form | crispy}}
                     
                     <input type="submit" class="btn btn-info" name="submit" value="Update Profile"><br>
