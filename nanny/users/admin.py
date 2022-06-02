@@ -1,12 +1,12 @@
 from django.contrib import admin
 
 # Register your models here.
-from . models import NannyProfile
+from . models import Profile
 
 
 
-class NannyProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(admin.ModelAdmin):
     list_display= ('nanny_user','phone_number','state','city','religion','education','ethinicity','date_of_birth',)
     list_filter=('education',)
     
-admin.site.register(NannyProfile, NannyProfileAdmin)
+admin.site.register(Profile, ProfileAdmin)

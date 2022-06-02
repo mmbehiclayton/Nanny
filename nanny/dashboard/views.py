@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from users.models import NannyProfile
+from users.models import Profile
 
 # Create your views here.
 

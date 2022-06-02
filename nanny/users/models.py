@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class NannyProfile(models.Model):
+class Profile(models.Model):
   RELIGION_CATEGORY=(
     ('Christian', 'Christian'),
     ('Islam', 'Islam'),
@@ -35,6 +35,7 @@ class NannyProfile(models.Model):
   ethinicity=models.CharField(max_length=10, choices=ETHINICITY)
   date_of_birth=models.DateField(null=True)
   image=models.ImageField(default="default.png", upload_to='media/')
+  is_employer=models.BooleanField(default=False)
 
 def _str_(self):
   return f'{self.nanny_user.username}-NannyProfile'

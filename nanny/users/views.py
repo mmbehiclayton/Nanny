@@ -1,7 +1,7 @@
 
 from multiprocessing import context
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, NannyProfileUpdateForm, UserUpdateForm
+from .forms import CreateUserForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -35,13 +35,13 @@ def profile(request):
 def profile_update(request):
     if request.method=='POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        user_update_form = NannyProfileUpdateForm(request.POST, request.FILES, instance=request.user.nannyprofile)
+        user_update_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and user_update_form.is_valid():
             user_form.save()
             user_update_form.save()
             return redirect('user_profile')
     else:
-        user_update_form=NannyProfileUpdateForm(instance=request.user.nannyprofile)
+        user_update_form=ProfileUpdateForm(instance=request.user.profile)
         user_form=UserUpdateForm(instance=request.user)
     context={
         'user_form': user_form,
