@@ -16,7 +16,7 @@ class CreateUserForm(UserCreationForm):
 class UserType(forms.ModelForm):
     class Meta:
         model=Profile
-        fields=('is_employer')
+        fields=('is_employer',)
  
 #this class creates a from that is used to update nanny user profile.
 
@@ -31,5 +31,5 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model=Profile
-        fields=['phone_number','state','city','religion','education','ethinicity','date_of_birth','image']
+        fields=['phone_number','state','city','religion','education','ethinicity','date_of_birth','is_employer','image']
             

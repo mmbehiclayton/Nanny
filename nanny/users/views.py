@@ -1,7 +1,7 @@
 
 from multiprocessing import context
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, ProfileUpdateForm, UserUpdateForm
+from .forms import CreateUserForm, ProfileUpdateForm, UserUpdateForm, UserType
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -11,15 +11,19 @@ from django.contrib.auth.decorators import login_required
 def signup(request):
     if request.method=='POST':
         signup_form= CreateUserForm(request.POST)
+        user_type_form=UserType(request.POST)
         if signup_form.is_valid():
             signup_form.save()
+          
             messages.success(request, 'Your profile is updated successfully')
             return redirect('dashboard-index')
     else:
-        signup_form= CreateUserForm()  
+        signup_form= CreateUserForm() 
+      
     #contexts
     context={
-        'signup_form':signup_form
+        'signup_form':signup_form,
+       
         }
         
     
